@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+    pgrout:
+        container_name: pgrout
+        build: 
+          context: ./pgrout
+          dockerfile: Dockerfile.m1
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=password
+        volumes:
+            - ../data:/home/dati
+            - ./scripts:/home/scripts
+        ports:
+            - "5433:5432"
+ 
